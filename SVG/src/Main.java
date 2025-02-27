@@ -25,7 +25,7 @@ public class Main {
         int n = 5;
         Segment[] seg_arr = {segment1,segment2,segment3,segment4,segment5};
 
-        double max_in_arr = Segment.find(seg_arr,n);
+        double max_in_arr = Segment.find_longest_segment(seg_arr,n);
         System.out.println(max_in_arr);
     }
 }
