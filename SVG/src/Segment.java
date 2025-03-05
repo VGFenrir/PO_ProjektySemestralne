@@ -15,13 +15,14 @@ public class Segment {
         return Math.sqrt(Math.pow(p2.x - p1.x,2)+Math.pow(p2.y-p1.y,2));
     }
 
-    public static double find_longest_segment(Segment[] seg_arr, int n){
-        double max = 0;
-        for(int i = 0; i < n; i++){
-            if(max < seg_arr[i].length()){
-                max = seg_arr[i].length();
+     public static Segment find_segment(Segment[] segment_arr){
+        double max_l = 0;
+        Segment max = null;
+        for(Segment i : segment_arr){
+            if(i.length() > max_l){
+                max_l = i.length();
+                max = i;
             }
-            //System.out.println(seg_arr[i].length());
         }
         return max;
     }
