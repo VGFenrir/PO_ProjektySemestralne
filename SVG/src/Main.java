@@ -1,31 +1,30 @@
 public class Main {
-
     public static void main(String[] args) {
-        Point point = new Point(2,3);
-        System.out.println(point.toString());
-        System.out.println(point.toSVG());
-        point.translate(2,3);
-        System.out.println(point);
-        point.translate(2,3);
-        Point point2 = new Point(1,1);
-        Point point3 = new Point(2,1);
-        Point point4 = new Point(4,1);
-        Point point5 = new Point(6,1);
-        Point point6 = new Point(10,1);
+        System.out.println("Hello World");
 
-        System.out.println(point.translated(2,3));
-        Segment segment1 = new Segment(point, point2);
-        System.out.println(segment1.length());
+        Point p1 = new Point(10,11);
+        System.out.println(p1.toSvg());
+        System.out.println(p1.translated(10,11));
 
-        Segment segment2 = new Segment(point,point3);
-        Segment segment3 = new Segment(point,point4);
-        Segment segment4 = new Segment(point,point5);
-        Segment segment5 = new Segment(point,point6);
+//        Segment[] segment_arr = new Segment[]{};
+//        Segment.find_segment(segment_arr);
 
-        int n = 5;
-        Segment[] seg_arr = {segment1,segment2,segment3,segment4,segment5};
+        Point p2 = new Point(10,11);
+        Point p3 = new Point(20,1);
+        Point p4 = new Point(1,11);
+        Point p5 = new Point(5,8);
+        Point p6 = new Point(6,7);
+        Point p7 = new Point(3,6);
 
-        double max_in_arr = Segment.find_segment(seg_arr);
-        System.out.println(max_in_arr);
+        Polygon pol1 = new Polygon(new Point[]{p1,p3,p6});
+        Polygon pol2 = new Polygon(new Point[]{p7,p4,p2});
+        Polygon pol3 = new Polygon(new Point[]{p5,p1,p4});
+
+        SvgScene scene = new SvgScene();
+        scene.addPolygon(pol1);
+        scene.addPolygon(pol2);
+        scene.addPolygon(pol3);
+
+        scene.save("/scene.svg");
     }
 }

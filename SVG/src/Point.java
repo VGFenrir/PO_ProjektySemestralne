@@ -1,26 +1,42 @@
 public class Point {
-    public float x,y;
+    private float x, y;
+    public Point(float x, float y){
+        this.x = x;
+        this.y = y;
+    }
 
-    public Point(float x_, float y_){
-        this.x = x_;
-        this.y = y_;
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public void setPoint(float x, float y){
+        this.x = x;
+        this.y = y;
     }
 
     public String toString(){
-        return "("+x+ " "+y+")";
+        return "("+ x + ", "+ y + ")";
     }
-
-    public String toSVG(){
-        return "<circle r="+45+" cx="+50+" cy="+50+" fill=red />";
+    public String toSvg(){
+        return "<circle r=\""+45+"\" cx=\""+x+"\" cy=\""+y+"\" fill=\"red\" />";
     }
-
     public void translate(float dx, float dy){
         this.x += dx;
         this.y += dy;
     }
     public Point translated(float dx, float dy){
-        dx += this.x;
-        dy += this.y;
-        return new Point(dx, dy);
+        return new Point(this.x + dx, this.y + dy);
     }
 }
