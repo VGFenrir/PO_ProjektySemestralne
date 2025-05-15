@@ -1,10 +1,10 @@
-import java.text.DateFormat;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException, NegativeLifespanException,ParentingAgeException {
         Person Ozjasz = new Person("Ozjasz", "Goldberg", LocalDate.parse("1942-07-27"));
         Person Adam = new Person("Adam", "Goldberg", LocalDate.parse("1956-07-27"));
         Person Grzegorz = new Person("Grzegorz", "Goldberg", LocalDate.parse("1957-07-27"));
@@ -18,7 +18,10 @@ public class Main {
         Ozjasz.adopt(Kacper);
         Ozjasz.adopt(Mateo);
 
-        System.out.println(Ozjasz.getChildren());
+        List<Person> people = Person.fromCsv("family.csv");
 
+        people.forEach((e)->{
+            System.out.println(e.getChildren());
+        });
     }
 }
