@@ -67,6 +67,24 @@ public class Person implements Comparable{
         return 0;
     }
 
+        public static void toBinaryFile(List<Person> people, String filename) throws IOException {
+
+        FileOutputStream file_output = new FileOutputStream(filename);
+        ObjectOutputStream object_output = new ObjectOutputStream(fos);
+
+        oos.writeObject(people);
+
+    }
+
+    public static List<Person> fromBinaryFile(String filename) throws IOException, ClassNotFoundException {
+        try (
+                FileInputStream file_input = new FileInputStream(filename);
+                ObjectInputStream object_input = new ObjectInputStream(fis);
+        ) {
+            return (List<Person>) ois.readObject();
+        }
+    }
+
     public boolean adopt(Person child){
         return this.children.add(child);
     }
