@@ -16,6 +16,7 @@ public class Brick extends GraphicsItem{
     public static void setGridCols(int gridCols) {
         Brick.gridCols = gridCols;
     }
+    
     public Brick(int x, int y, Color color){
         this.width = canvasWidth/gridCols;
         this.height = canvasHeight/gridRows;
@@ -23,10 +24,10 @@ public class Brick extends GraphicsItem{
         this.y = height * y;
         this.color = color;
     }
+    
     @Override
     public void draw(GraphicsContext graphicsContext) {
         graphicsContext.setFill(color);
         graphicsContext.fillRect(x, y, width, height);
     }
-
 }
