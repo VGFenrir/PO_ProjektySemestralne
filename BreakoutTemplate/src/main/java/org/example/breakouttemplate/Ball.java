@@ -13,7 +13,8 @@ public class Ball extends GraphicsItem {
     public Ball() {
         x = -100;
         y = -100;
-        width = height = canvasHeight * .015;
+        width = canvasHeight * .015;
+        height = canvasHeight * .015;
     }
 
     public Point2D getLastPosition() {
@@ -44,6 +45,7 @@ public class Ball extends GraphicsItem {
         ++i;
         System.out.println(i);
     }
+    
     public void bounceVertically(){
         moveVector = new Point2D(moveVector.getX(), -moveVector.getY()).normalize();
         ++i;
